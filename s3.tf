@@ -47,6 +47,7 @@ resource "aws_s3_bucket_policy" "www" {
 resource "aws_s3_bucket" "log_bucket" {
   bucket = "${var.prefix}-${var.munki_s3_bucket}-logs"
 
+  
   lifecycle_rule {
     enabled = true
 
