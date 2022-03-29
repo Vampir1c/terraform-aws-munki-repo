@@ -44,10 +44,11 @@ resource "aws_s3_bucket_policy" "www" {
   policy = data.aws_iam_policy_document.s3_policy.json
 }
 
-resource "aws_s3_bucket" "log_bucket"
+resource "aws_s3_bucket" "log_bucket" {
   bucket = "${var.prefix}-${var.munki_s3_bucket}-logs"
+  acl = "log-delivery-write"
+}
   
-
   lifecycle_rule {
     enabled = true
 
